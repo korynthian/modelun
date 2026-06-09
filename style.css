@@ -1,0 +1,96 @@
+body {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#headerBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.75);
+}
+
+#headerOverlay {
+    position: relative;
+    margin: 20px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.075);
+    border-radius: 20px;
+    max-width: 500px; 
+    font-size: 1.5rem;
+}
+
+#title {
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 5px;
+}
+
+#headerLogo {
+    width: 500px;
+    margin-bottom: 15px;
+}
+
+#pageContent {
+    flex: 1;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#footerBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#footerText {
+    position: relative; 
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.075); 
+    border-radius: 15px;
+    font-weight: 300;
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 900px;
+    bottom: 5px;
+}
