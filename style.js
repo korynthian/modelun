@@ -52,7 +52,7 @@ fetch("/template.txt")
         }
       });
 
-      fetch("/template.txt")
+      fetch("./links.txt")
         .then((res) => res.text())
         .then((text) => {
           if (text.includes("Cannot GET /")) {

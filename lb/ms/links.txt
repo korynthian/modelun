@@ -1,0 +1,5 @@
+<a href="/lb/ms/index.html">Home</a>
+<a href="/lb/ms/photos.html">Photos</a>
+<a href="/lb/ms/mock.html">Mock</a>
+<a href="/lb/ms/charter.html">Charter</a>
+<a href="../index.html">Back</a>
