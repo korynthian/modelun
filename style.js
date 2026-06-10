@@ -6,11 +6,6 @@ if (title === "Welcome") {
   title = "Lake Braddock Secondary School Model United Nations"
 }
 
-let title = document.title;
-if (title === "Welcome") { 
-  title = "Lake Braddock Secondary School Model United Nations"
-}
-
 function initDropdowns() {
   const dropdowns = document.querySelectorAll('.dropdown');
   dropdowns.forEach(dropdown => {
