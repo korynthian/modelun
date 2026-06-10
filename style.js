@@ -1,3 +1,11 @@
+// --- DYNAMIC PATH FIX ---
+const basePath = window.location.pathname.includes('/modelun') ? '/modelun' : '';
+
+let title = document.title;
+if (title === "Welcome") { 
+  title = "Lake Braddock Secondary School Model United Nations"
+}
+
 let title = document.title;
 if (title === "Welcome") { 
   title = "Lake Braddock Secondary School Model United Nations"
@@ -51,15 +59,15 @@ fetch("/template.txt")
         }
       });
 
-      fetch("./links.txt")
+      fetch(basePath + "/template.txt")
         .then((res) => res.text())
         .then((text) => {
           if (text.includes("Cannot GET /")) {
-            fetch("../links.txt")
+            fetch(basePath + "/links.txt")
               .then((res) => res.text())
               .then((text) => {
                 if (text.includes("Cannot GET /")) {
-                  fetch("../../links.txt")
+                  fetch(basePath + "../../links.txt")
                     .then((res) => res.text())
                     .then((text) => {
                       if (text.includes("Cannot GET /")) {
@@ -91,8 +99,8 @@ newHead.innerHTML = `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Lake Braddock SS Model UN</title>
-    <link rel="stylesheet" href="/template.css">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="${basePath}/template.css">
+    <link rel="stylesheet" href="${basePath}/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
