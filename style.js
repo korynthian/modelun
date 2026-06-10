@@ -1,5 +1,3 @@
-// --- DYNAMIC PATH FIX ---
-const basePath = window.location.pathname.includes('/modelun') ? '/modelun' : '';
 
 let title = document.title;
 if (title === "Welcome") { 
