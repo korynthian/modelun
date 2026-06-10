@@ -52,15 +52,15 @@ fetch("/template.txt")
         }
       });
 
-      fetch(basePath + "/template.txt")
+      fetch("/template.txt")
         .then((res) => res.text())
         .then((text) => {
           if (text.includes("Cannot GET /")) {
-            fetch(basePath + "/links.txt")
+            fetch("/links.txt")
               .then((res) => res.text())
               .then((text) => {
                 if (text.includes("Cannot GET /")) {
-                  fetch(basePath + "../../links.txt")
+                  fetch("/../../links.txt")
                     .then((res) => res.text())
                     .then((text) => {
                       if (text.includes("Cannot GET /")) {
@@ -92,8 +92,8 @@ newHead.innerHTML = `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Lake Braddock SS Model UN</title>
-    <link rel="stylesheet" href="${basePath}/template.css">
-    <link rel="stylesheet" href="${basePath}/style.css">
+    <link rel="stylesheet" href="/template.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
