@@ -11,3 +11,132 @@
     font-size: 1.25rem;
     color: var(--lbss-purple);
 }
+
+.blockLink {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: var(--lbss-purple);
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.blockLink:hover {
+    background-color: var(--lbss-gold);
+}
+
+.blockLinkoutline {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    border: 2px solid var(--lbss-purple);
+    color: var(--lbss-purple);
+}
+
+.blockLinkoutline:hover {
+    background-color: var(--lbss-purple);
+    color: white;
+}
+
+.secretariat-content {
+    background-color: #ffffff;
+    padding: 40px 20px;
+}
+
+.profile-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+}
+
+.profile-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-card img, 
+.profile-card .img-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    color: #582C83;
+    font-size: 1.8rem;
+    margin: 0 0 5px 0;
+    font-weight: 400;
+}
+
+.profile-role {
+    font-size: 1rem;
+    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: 300;
+}
+
+.profile-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.icon-placeholder {
+    background-color: #666;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.profile-card.large {
+    max-width: 400px;
+}
+
+.profile-card.horizontal {
+    flex-direction: row;
+    max-width: 800px;
+    flex: 1 1 100%;
+    align-items: center;
+    text-align: left;
+}
+
+.profile-card.horizontal img {
+    width: 350px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 0;
+    margin-right: 30px;
+}
+
+.profile-card.horizontal .horizontal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+}

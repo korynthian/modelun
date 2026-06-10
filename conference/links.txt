@@ -1,3 +1,4 @@
+<a href="./index.html">Home</a>
 <a href="./committees.html">Committees</a>
 <a href="./conference-info.html">Conference Information</a>
 <a href="./schedule.html">Schedule</a>
