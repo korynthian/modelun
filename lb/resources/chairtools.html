@@ -1,13 +1,1523 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Chair Tools</title>
-    <script src="/style.js"></script>
-</head>
-<body>
-    <div id="pageContent">
-        <p>Join us on Wednesdays in Ms. Sypher's room (H212) (MS) OR Mondays IN Mrs. Kratz's room (H211) (HS)!</p>
-        <a class="blockLink" href="https://forms.gle/u7APV5r9YQG7QVoH6">Interested? Fill out the interest form.</a>
-        <div class="docswrapper"><iframe src="https://docs.google.com/document/d/1VwmEKMEUaiejprOOiF_Fusrxfo5cXEZWRAtYMJcx23o/preview" width="800" height="450" frameborder="0" scrolling="yes"></iframe><a href="https://www.taxgoo.com/w-8-form/">W-8</a><style>.docswrapper{position:relative}.docswrapper iframe{border:0;position:relative;z-index:2}.docswrapper a{color:rgba(0,0,0,0);position:absolute;left:0;top:0;z-index:0}</style></div>
-    </div>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>
+         Model UN
+      </title>
+      <link href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/UN_emblem_blue.svg/3840px-UN_emblem_blue.svg.png"
+      rel="icon" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+      <style>
+
+         body {
+            font-family:Roboto,sans-serif;
+            background-color:#009ddb57;
+         }
+
+         h1, h2{
+            display:flex;
+            background-color:#009ddb96;
+            padding:3%;
+            margin:3%;
+            border-radius:5px;
+            color:#e0f6ffef;
+         }
+
+         p {
+            display:flex;
+            margin:3%;
+            border-radius:5px;
+            color:#e0f6ffef;
+         }
+
+         button, a, .blocktext{
+            background-color:#009ddb96;
+            padding:1%;
+            margin:1%;
+            border-radius:20px;
+            color:#e0f6ffef;
+            border:none;
+            font-size:1.5em;
+            color:#e0f6ffef;
+         }
+
+         dialog {
+            border:none;
+            border-radius:5px;
+            background-color:#009ddb67;
+            padding:2%;
+         }
+
+         select {
+            background-color:#009ddb;
+            display:block;
+            padding:1%;
+            margin:1%;
+            border-radius:20px;
+            color:#e0f6ffef;
+            border:none;
+            font-size:1.5em;
+         }
+
+         input {
+            background-color:#009ddb96;
+            display:block;
+            padding:1%;
+            margin:1%;
+            border-radius:20px;
+            color:#e0f6ffef;
+            border:none;
+            font-size:1.5em;
+         }
+
+         ::placeholder {
+            color:#e0f6ffef;
+            opacity:75%;
+         }
+
+         .MotionPass {
+            font-size:2em;
+            display:inline-block;
+         }
+
+         .motion {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            font-size: clamp(0.5rem, 5vw, 1.5rem);
+         }
+
+         .motionButtons {
+            display:flex;
+            gap:10px;
+            flex-shrink:0;
+         }
+
+         .base-timer {
+            position:relative;
+            height:300px;
+            width:300px;
+         }
+
+         .base-timer__circle {
+            fill:none;
+            stroke:none;
+         }
+
+         .base-timer__path-elapsed {
+            stroke-width:7px;
+            stroke:grey;
+         }
+
+         .base-timer__path-remaining {
+            stroke-width:7px;
+            stroke-linecap:round;
+            transform:rotate(90deg);
+            transform-origin:center;
+            transition:1s linear all;
+            stroke:green;
+            pointer-events:none;
+         }
+
+         .base-timer__svg {
+            transform:scaleX(-1);
+            pointer-events:none;
+         }
+
+         dialog {
+            z-index:10;
+         }
+
+         #timerDisplay {
+            position:absolute;
+            width:300px;
+            height:300px;
+            top:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:50px;
+            pointer-events:none;
+            background-color:transparent;
+            margin:0;
+            padding:0;
+         }
+
+         #timerButtons {
+            position:absolute;
+            width:300px;
+            height:300px;
+            bottom:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:5px;
+            pointer-events: none;
+         }
+
+         #timerButtons button {
+            height:35px;
+            width:35px;
+            padding:0;
+            margin:0;
+            background-color:rgba(255,255,255,0.2);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:18px;
+            pointer-events:all;
+         }
+
+         .motion-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #009ddb96;
+            padding: 0.40% 1.9%;
+            margin: 3% 15% 3% 15%;
+            border-radius: 5px;
+            position: relative;
+         }
+         
+         #pageTitle {
+         	margin: 0 14% 0 14%;
+         }
+         
+         #topbar {
+         	background-color: #009ddb57;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.40% 1.9% 0.40% 1.9%;
+            margin: 1% 1% 1% 1%;
+            position:fixed;
+            top:1%;
+            right:1%;
+         }
+         
+         #topbar button {
+         	background-color:#009ddb96;
+            padding:1%;
+            margin:1%;
+            border-radius:20px;
+            color:#e0f6ffef;
+            border:none;
+            font-size:1.5em;
+            width: 60px;
+            height: 50px;
+            color:#e0f6ffef;
+         }
+         
+         .motionDelete {
+            position: absolute;
+            right:    0;
+            bottom:   0;
+            font-size: 10px;
+         }
+         
+         .motionEdit {
+            position: absolute;
+            right:    35px;
+            bottom:   0;
+            font-size: 10px;
+         }
+         
+         .smallPassFail {
+         	position: absolute;
+            right: 75px;
+            bottom: 0;
+            font-size: 10px;
+         }
+
+      </style>
+   </head>
+   <body>
+
+      <div id="topbar">
+         <button onclick="document.getElementById('addmotions').showModal()" id="addmotionbtn">
+            +
+         </button>
+         <button onclick="document.getElementById('settings').showModal()" id="settingsbtn">
+            ⚙
+         </button>
+         <button onclick="document.getElementById('about').showModal()" id="aboutbtn">
+         	❔
+         </button>
+         <button onclick="document.getElementById('save').showModal(); save()"
+         id="savebtn">
+            ⬇
+         </button>
+         <button onclick="document.getElementById('import').showModal()" id="importbtn">
+            ⬆
+         </button>
+         <button onclick="document.getElementById('setCustomTimer').showModal()"
+         id="timerbtn">
+            ⏱
+         </button>
+      </div>
+
+      <h1 id="pageTitle">
+         Model UN
+      </h1>
+
+      <div id="motionsbox">
+         <div class="motion-container">
+            <p class="motion" id="motionWelcome">
+            	Welcome!
+            </p>
+         </div>
+      </div>
+
+      <dialog id="addmotions">
+         <h1>
+            Add a motion
+         </h1>
+         <select id="motionSelectCountry">
+         </select>
+         <input type="text" id="motionTopic" placeholder="Topic">
+         <button onclick="addMotion('Open Committee', document.getElementById('motionSelectCountry').value, 0)">
+            Open Committee
+         </button>
+         <button onclick="document.getElementById('selectTimeRR').showModal()">
+            Round Robin
+         </button>
+         <button onclick="document.getElementById('selectTimeUM').showModal()">
+            Unmoderated Caucus
+         </button>
+         <button onclick="document.getElementById('selectModDetails').showModal()">
+            Moderated Caucus
+         </button>
+         <input type="text" id="customMotionInput" placeholder="Custom Motion">
+         <button onclick="addMotion(document.getElementById('customMotionInput').value,document.getElementById('motionSelectCountry').value, 0)">
+            Add Custom Motion
+         </button>
+      </dialog>
+
+      <dialog id="selectTimeRR">
+         <h1>
+            How Long?
+         </h1>
+         <button id="RR30" onclick="addMotion('30s Round Robin', document.getElementById('motionSelectCountry').value, 30);">
+            30 seconds
+         </button>
+         <button id="RR45" onclick="addMotion('45s Round Robin', document.getElementById('motionSelectCountry').value, 45)">
+            45 seconds
+         </button>
+         <button id="RR60" onclick="addMotion('1m Round Robin', document.getElementById('motionSelectCountry').value, 60)">
+            1 minute
+         </button>
+         <button id="RR90" onclick="addMotion('90s Round Robin', document.getElementById('motionSelectCountry').value, 90)">
+            90 seconds
+         </button>
+         <input type="number" id="customRR" placeholder="Custom Time (seconds)">
+         <button onclick="addMotion(document.getElementById('customRR').value + 's Round Robin', document.getElementById('motionSelectCountry').value, document.getElementById('customRR').value)">
+            Add Custom
+         </button>
+      </dialog>
+
+      <dialog id="selectTimeUM">
+         <h1>
+            How Long?
+         </h1>
+         <button id="UM3" onclick="addMotion('3 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 180)">
+            3 minutes
+         </button>
+         <button id="UM5" onclick="addMotion('5 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 300)">
+            5 minutes
+         </button>
+         <button id="UM7" onclick="addMotion('7 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 420)">
+            7 minutes
+         </button>
+         <button id="UM10" onclick="addMotion('10 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 600)">
+            10 minutes
+         </button>
+         <button id="UM15" onclick="addMotion('15 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 900)">
+            15 minutes
+         </button>
+         <button id="UM20" onclick="addMotion('20 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 1200)">
+            20 minutes
+         </button>
+         <button id="UM30" onclick="addMotion('30 minutes Unmoderated Caucus', document.getElementById('motionSelectCountry').value, 1800)">
+            30 minutes
+         </button>
+         <input type="number" id="customUM" placeholder="Custom Time (minutes)">
+         <button onclick="addMotion(document.getElementById('customUM').value + 'm Unmod', document.getElementById('motionSelectCountry').value, document.getElementById('customUM').value * 60)">
+            Add Custom
+         </button>
+      </dialog>
+
+      <dialog id="selectModDetails">
+         <h1>
+            How Long? How Many People?
+         </h1>
+         <input type="number" id="modTotalTime" placeholder="Total Minutes">
+         <input type="number" id="modIndividualTime" placeholder="Speaking Seconds">
+         <button onclick="submitMod()">
+            Add Moderated Caucus
+         </button>
+      </dialog>
+
+      <dialog id="settings">
+         <h1>
+            Settings
+         </h1>
+         <button onclick="document.getElementById('addCountries').showModal()">
+            Add Countries
+         </button>
+         <button onclick="document.getElementById('settings').close()">
+            Close
+         </button>
+      </dialog>
+
+      <dialog id="addCountries">
+         <h1>
+            Add Countries
+         </h1>
+         <select class="form-select" autocomplete="country" id="countrySelectIRLAdd"
+         name="country">
+            <option value="NULL">
+               Select a Country
+            </option>
+            <optgroup label="Asia">
+               <option value="🇦🇫Afghanistan">
+                  🇦🇫Afghanistan
+               </option>
+               <option value="🇦🇲Armenia">
+                  🇦🇲Armenia
+               </option>
+               <option value="🇦🇿Azerbaijan ">
+                  🇦🇿Azerbaijan
+               </option>
+               <option value="🇧🇭Bahrain">
+                  🇧🇭Bahrain
+               </option>
+               <option value="🇧🇩Bangladesh">
+                  🇧🇩Bangladesh
+               </option>
+               <option value="🇧🇹Bhutan">
+                  🇧🇹Bhutan
+               </option>
+               <option value="🇮🇴British Indian Ocean Territory">
+                  🇮🇴British Indian Ocean Territory
+               </option>
+               <option value="🇧🇳Brunei Darussalam">
+                  🇧🇳Brunei Darussalam
+               </option>
+               <option value="🇰🇭Cambodia">
+                  🇰🇭Cambodia
+               </option>
+               <option value="🇨🇳China">
+                  🇨🇳China
+               </option>
+               <option value="🇨🇽Christmas Island">
+                  🇨🇽Christmas Island
+               </option>
+               <option value="🇨🇨Cocos (Keeling) Islands">
+                  🇨🇨Cocos (Keeling) Islands
+               </option>
+               <option value="🇨🇾Cyprus">
+                  🇨🇾Cyprus
+               </option>
+               <option value="🇬🇪Georgia">
+                  🇬🇪Georgia
+               </option>
+               <option value="🇭🇰Hong Kong">
+                  🇭🇰Hong Kong
+               </option>
+               <option value="🇮🇳India">
+                  🇮🇳India
+               </option>
+               <option value="🇮🇩Indonesia">
+                  🇮🇩Indonesia
+               </option>
+               <option value="🇮🇷Iran">
+                  🇮🇷Iran
+               </option>
+               <option value="🇮🇶Iraq">
+                  🇮🇶Iraq
+               </option>
+               <option value="🇮🇱Israel">
+                  🇮🇱Israel
+               </option>
+               <option value="🇯🇵Japan">
+                  🇯🇵Japan
+               </option>
+               <option value="🇯🇴Jordan">
+                  🇯🇴Jordan
+               </option>
+               <option value="🇰🇿Kazakhstan">
+                  🇰🇿Kazakhstan
+               </option>
+               <option value="🇰🇵People's Democratic Republic of Korea">
+                  🇰🇵Korea, North
+               </option>
+               <option value="🇰🇷Republic of Korea">
+                  🇰🇷Korea, South
+               </option>
+               <option value="🇰🇼Kuwait">
+                  🇰🇼Kuwait
+               </option>
+               <option value="🇰🇬Kyrgyzstan">
+                  🇰🇬Kyrgyzstan
+               </option>
+               <option value="🇱🇦Lao People's Democratic Republic">
+                  🇱🇦Lao People's Democratic Republic
+               </option>
+               <option value="🇱🇧Lebanon">
+                  🇱🇧Lebanon
+               </option>
+               <option value="🇲🇴Macao">
+                  🇲🇴Macao
+               </option>
+               <option value="🇲🇾Malaysia">
+                  🇲🇾Malaysia
+               </option>
+               <option value="🇲🇻Maldives">
+                  🇲🇻Maldives
+               </option>
+               <option value="🇲🇳Mongolia">
+                  🇲🇳Mongolia
+               </option>
+               <option value="🇲🇲Myanmar (Burma)">
+                  🇲🇲Myanmar (Burma)
+               </option>
+               <option value="🇳🇵Nepal">
+                  🇳🇵Nepal
+               </option>
+               <option value="🇴🇲Oman">
+                  🇴🇲Oman
+               </option>
+               <option value="🇵🇰Pakistan">
+                  🇵🇰Pakistan
+               </option>
+               <option value="🇵🇸Palestine">
+                  🇵🇸Palestine
+               </option>
+               <option value="🇵🇭Philippines">
+                  🇵🇭Philippines
+               </option>
+               <option value="🇶🇦Qatar">
+                  🇶🇦Qatar
+               </option>
+               <option value="🇷🇺Russian Federation">
+                  🇷🇺Russian Federation
+               </option>
+               <option value="🇸🇦Saudi Arabia">
+                  🇸🇦Saudi Arabia
+               </option>
+               <option value="🇸🇬Singapore">
+                  🇸🇬Singapore
+               </option>
+               <option value="🇱🇰Sri Lanka">
+                  🇱🇰Sri Lanka
+               </option>
+               <option value="🇸🇾Syria">
+                  🇸🇾Syria
+               </option>
+               <option value="🇹🇼Taiwan">
+                  🇹🇼Taiwan
+               </option>
+               <option value="🇹🇯Tajikistan">
+                  🇹🇯Tajikistan
+               </option>
+               <option value="🇹🇭Thailand">
+                  🇹🇭Thailand
+               </option>
+               <option value="🇹🇱Timor-Leste">
+                  🇹🇱Timor-Leste
+               </option>
+               <option value="🇹🇷Türkiye">
+                  🇹🇷Türkiye
+               </option>
+               <option value="🇹🇲Turkmenistan">
+                  🇹🇲Turkmenistan
+               </option>
+               <option value="🇦🇪United Arab Emirates">
+                  🇦🇪United Arab Emirates
+               </option>
+               <option value="🇺🇿Uzbekistan">
+                  🇺🇿Uzbekistan
+               </option>
+               <option value="🇻🇳Vietnam">
+                  🇻🇳Vietnam
+               </option>
+               <option value="🇾🇪Yemen">
+                  🇾🇪Yemen
+               </option>
+            </optgroup>
+            <optgroup label="Europe">
+               <option value="🇦🇽Åland Islands">
+                  🇦🇽Åland Islands
+               </option>
+               <option value="🇦🇱Albania">
+                  🇦🇱Albania
+               </option>
+               <option value="🇦🇩Andorra">
+                  🇦🇩Andorra
+               </option>
+               <option value="🇦🇹Austria">
+                  🇦🇹Austria
+               </option>
+               <option value="🇧🇾Belarus">
+                  🇧🇾Belarus
+               </option>
+               <option value="🇧🇪Belgium">
+                  🇧🇪Belgium
+               </option>
+               <option value="🇧🇦Bosnia and Herzegovina">
+                  🇧🇦Bosnia and Herzegovina
+               </option>
+               <option value="🇧🇬Bulgaria">
+                  🇧🇬Bulgaria
+               </option>
+               <option value="🇭🇷Croatia">
+                  🇭🇷Croatia
+               </option>
+               <option value="🇨🇿Czech Republic">
+                  🇨🇿Czech Republic
+               </option>
+               <option value="🇩🇰Denmark">
+                  🇩🇰Denmark
+               </option>
+               <option value="🇪🇪Estonia">
+                  🇪🇪Estonia
+               </option>
+               <option value="🇫🇴Faroe Islands">
+                  🇫🇴Faroe Islands
+               </option>
+               <option value="🇫🇮Finland">
+                  🇫🇮Finland
+               </option>
+               <option value="🇫🇷France">
+                  🇫🇷France
+               </option>
+               <option value="🇩🇪Germany">
+                  🇩🇪Germany
+               </option>
+               <option value="🇬🇮Gibraltar">
+                  🇬🇮Gibraltar
+               </option>
+               <option value="🇬🇷Greece">
+                  🇬🇷Greece
+               </option>
+               <option value="🇬🇬Guernsey">
+                  🇬🇬Guernsey
+               </option>
+               <option value="🇭🇺Hungary">
+                  🇭🇺Hungary
+               </option>
+               <option value="🇮🇸Iceland">
+                  🇮🇸Iceland
+               </option>
+               <option value="🇮🇪Ireland">
+                  🇮🇪Ireland
+               </option>
+               <option value="🇮🇲Isle of Man">
+                  🇮🇲Isle of Man
+               </option>
+               <option value="🇮🇹Italy">
+                  🇮🇹Italy
+               </option>
+               <option value="🇯🇪Jersey">
+                  🇯🇪Jersey
+               </option>
+               <option value="🇽🇰Kosovo">
+                  🇽🇰Kosovo
+               </option>
+               <option value="🇱🇻Latvia">
+                  🇱🇻Latvia
+               </option>
+               <option value="🇱🇮Liechtenstein">
+                  🇱🇮Liechtenstein
+               </option>
+               <option value="🇱🇹Lithuania">
+                  🇱🇹Lithuania
+               </option>
+               <option value="🇱🇺Luxembourg">
+                  🇱🇺Luxembourg
+               </option>
+               <option value="🇲🇰Macedonia, North">
+                  🇲🇰Macedonia, North
+               </option>
+               <option value="🇲🇹Malta">
+                  🇲🇹Malta
+               </option>
+               <option value="🇲🇩Moldova">
+                  🇲🇩Moldova
+               </option>
+               <option value="🇲🇨Monaco">
+                  🇲🇨Monaco
+               </option>
+               <option value="🇲🇪Montenegro">
+                  🇲🇪Montenegro
+               </option>
+               <option value="🇳🇱Netherlands">
+                  🇳🇱Netherlands
+               </option>
+               <option value="🇳🇴Norway">
+                  🇳🇴Norway
+               </option>
+               <option value="🇵🇱Poland">
+                  🇵🇱Poland
+               </option>
+               <option value="🇵🇹Portugal">
+                  🇵🇹Portugal
+               </option>
+               <option value="🇷🇴Romania">
+                  🇷🇴Romania
+               </option>
+               <option value="🇷🇺Russian Federation">
+                  🇷🇺Russian Federation
+               </option>
+               <option value="🇸🇲San Marino">
+                  🇸🇲San Marino
+               </option>
+               <option value="🇷🇸Serbia">
+                  🇷🇸Serbia
+               </option>
+               <option value="🇷🇸Serbia and Montenegro">
+                  🇷🇸Serbia and Montenegro
+               </option>
+               <option value="🇸🇰Slovakia">
+                  🇸🇰Slovakia
+               </option>
+               <option value="🇸🇮Slovenia">
+                  🇸🇮Slovenia
+               </option>
+               <option value="🇪🇸Spain">
+                  🇪🇸Spain
+               </option>
+               <option value="🇸🇯Svalbard and Jan Mayen">
+                  🇸🇯Svalbard and Jan Mayen
+               </option>
+               <option value="🇸🇪Sweden">
+                  🇸🇪Sweden
+               </option>
+               <option value="🇨🇭Switzerland">
+                  🇨🇭Switzerland
+               </option>
+               <option value="🇺🇦Ukraine">
+                  🇺🇦Ukraine
+               </option>
+               <option value="🇬🇧United Kingdom">
+                  🇬🇧United Kingdom
+               </option>
+               <option value="🇻🇦Vatican City (Holy See)">
+                  🇻🇦Vatican City (Holy See)
+               </option>
+            </optgroup>
+            <optgroup label="Africa">
+               <option value="🇩🇿Algeria">
+                  🇩🇿Algeria
+               </option>
+               <option value="🇦🇴Angola">
+                  🇦🇴Angola
+               </option>
+               <option value="🇧🇯Benin">
+                  🇧🇯Benin
+               </option>
+               <option value="🇧🇼Botswana">
+                  🇧🇼Botswana
+               </option>
+               <option value="🇧🇫Burkina Faso">
+                  🇧🇫Burkina Faso
+               </option>
+               <option value="🇧🇮Burundi">
+                  🇧🇮Burundi
+               </option>
+               <option value="🇨🇻Cabo Verde">
+                  🇨🇻Cabo Verde
+               </option>
+               <option value="🇨🇲Cameroon">
+                  🇨🇲Cameroon
+               </option>
+               <option value="🇨🇫Central African Republic">
+                  🇨🇫Central African Republic
+               </option>
+               <option value="🇹🇩Chad">
+                  🇹🇩Chad
+               </option>
+               <option value="🇰🇲Comoros">
+                  🇰🇲Comoros
+               </option>
+               <option value="🇨🇬Congo">
+                  🇨🇬Congo
+               </option>
+               <option value="🇨🇩Democratic Republic of the Congo">
+                  🇨🇩Congo, Democratic Republic of the
+               </option>
+               <option value="🇨🇮Côte d'Ivoire">
+                  🇨🇮Côte d'Ivoire
+               </option>
+               <option value="🇩🇯Djibouti">
+                  🇩🇯Djibouti
+               </option>
+               <option value="🇪🇬Egypt">
+                  🇪🇬Egypt
+               </option>
+               <option value="🇬🇶Equatorial Guinea">
+                  🇬🇶Equatorial Guinea
+               </option>
+               <option value="🇪🇷Eritrea">
+                  🇪🇷Eritrea
+               </option>
+               <option value="🇸🇿Eswatini (Swaziland)">
+                  🇸🇿Eswatini (Swaziland)
+               </option>
+               <option value="🇪🇹Ethiopia">
+                  🇪🇹Ethiopia
+               </option>
+               <option value="🇬🇦Gabon">
+                  🇬🇦Gabon
+               </option>
+               <option value="🇬🇲Gambia">
+                  🇬🇲Gambia
+               </option>
+               <option value="🇬🇭Ghana">
+                  🇬🇭Ghana
+               </option>
+               <option value="🇬🇳Guinea">
+                  🇬🇳Guinea
+               </option>
+               <option value="🇬🇼Guinea-Bissau">
+                  🇬🇼Guinea-Bissau
+               </option>
+               <option value="🇰🇪Kenya">
+                  🇰🇪Kenya
+               </option>
+               <option value="🇱🇸Lesotho">
+                  🇱🇸Lesotho
+               </option>
+               <option value="🇱🇷Liberia">
+                  🇱🇷Liberia
+               </option>
+               <option value="🇱🇾Libya">
+                  🇱🇾Libya
+               </option>
+               <option value="🇲🇬Madagascar">
+                  🇲🇬Madagascar
+               </option>
+               <option value="🇲🇼Malawi">
+                  🇲🇼Malawi
+               </option>
+               <option value="🇲🇱Mali">
+                  🇲🇱Mali
+               </option>
+               <option value="🇲🇷Mauritania">
+                  🇲🇷Mauritania
+               </option>
+               <option value="🇲🇺Mauritius">
+                  🇲🇺Mauritius
+               </option>
+               <option value="🇾🇹Mayotte">
+                  🇾🇹Mayotte
+               </option>
+               <option value="🇲🇦Morocco">
+                  🇲🇦Morocco
+               </option>
+               <option value="🇲🇿Mozambique">
+                  🇲🇿Mozambique
+               </option>
+               <option value="🇳🇦Namibia">
+                  🇳🇦Namibia
+               </option>
+               <option value="🇳🇪Niger">
+                  🇳🇪Niger
+               </option>
+               <option value="🇳🇬Nigeria">
+                  🇳🇬Nigeria
+               </option>
+               <option value="🇷🇪Reunion">
+                  🇷🇪Reunion
+               </option>
+               <option value="🇷🇼Rwanda">
+                  🇷🇼Rwanda
+               </option>
+               <option value="🇸🇭Saint Helena">
+                  🇸🇭Saint Helena
+               </option>
+               <option value="🇸🇹Sao Tome and Principe">
+                  🇸🇹Sao Tome and Principe
+               </option>
+               <option value="🇸🇳Senegal">
+                  🇸🇳Senegal
+               </option>
+               <option value="🇸🇨Seychelles">
+                  🇸🇨Seychelles
+               </option>
+               <option value="🇸🇱Sierra Leone">
+                  🇸🇱Sierra Leone
+               </option>
+               <option value="🇸🇴Somalia">
+                  🇸🇴Somalia
+               </option>
+               <option value="🇿🇦South Africa">
+                  🇿🇦South Africa
+               </option>
+               <option value="🇸🇸South Sudan">
+                  🇸🇸South Sudan
+               </option>
+               <option value="🇸🇩Sudan">
+                  🇸🇩Sudan
+               </option>
+               <option value="🇹🇿Tanzania">
+                  🇹🇿Tanzania
+               </option>
+               <option value="🇹🇬Togo">
+                  🇹🇬Togo
+               </option>
+               <option value="🇹🇳Tunisia">
+                  🇹🇳Tunisia
+               </option>
+               <option value="🇺🇬Uganda">
+                  🇺🇬Uganda
+               </option>
+               <option value="🇪🇭Western Sahara">
+                  🇪🇭Western Sahara
+               </option>
+               <option value="🇿🇲Zambia">
+                  🇿🇲Zambia
+               </option>
+               <option value="🇿🇼Zimbabwe">
+                  🇿🇼Zimbabwe
+               </option>
+            </optgroup>
+            <optgroup label="Australia (Oceania)">
+               <option value="🇦🇸American Samoa">
+                  🇦🇸American Samoa
+               </option>
+               <option value="🇦🇺Australia">
+                  🇦🇺Australia
+               </option>
+               <option value="🇨🇰Cook Islands">
+                  🇨🇰Cook Islands
+               </option>
+               <option value="🇫🇯Fiji">
+                  🇫🇯Fiji
+               </option>
+               <option value="🇵🇫French Polynesia">
+                  🇵🇫French Polynesia
+               </option>
+               <option value="🇬🇺Guam">
+                  🇬🇺Guam
+               </option>
+               <option value="🇰🇮Kiribati">
+                  🇰🇮Kiribati
+               </option>
+               <option value="🇲🇭Marshall Islands">
+                  🇲🇭Marshall Islands
+               </option>
+               <option value="🇫🇲Micronesia">
+                  🇫🇲Micronesia
+               </option>
+               <option value="🇳🇷Nauru">
+                  🇳🇷Nauru
+               </option>
+               <option value="🇳🇨New Caledonia">
+                  🇳🇨New Caledonia
+               </option>
+               <option value="🇳🇿New Zealand">
+                  🇳🇿New Zealand
+               </option>
+               <option value="🇳🇺Niue">
+                  🇳🇺Niue
+               </option>
+               <option value="🇳🇫Norfolk Island">
+                  🇳🇫Norfolk Island
+               </option>
+               <option value="🇲🇵Northern Mariana Islands">
+                  🇲🇵Northern Mariana Islands
+               </option>
+               <option value="🇵🇼Palau">
+                  🇵🇼Palau
+               </option>
+               <option value="🇵🇬Papua New Guinea">
+                  🇵🇬Papua New Guinea
+               </option>
+               <option value="🇵🇳Pitcairn Islands">
+                  🇵🇳Pitcairn Islands
+               </option>
+               <option value="🇼🇸Samoa">
+                  🇼🇸Samoa
+               </option>
+               <option value="🇸🇧Solomon Islands">
+                  🇸🇧Solomon Islands
+               </option>
+               <option value="🇹🇰Tokelau">
+                  🇹🇰Tokelau
+               </option>
+               <option value="🇹🇴Tonga">
+                  🇹🇴Tonga
+               </option>
+               <option value="🇹🇻Tuvalu">
+                  🇹🇻Tuvalu
+               </option>
+               <option value="🇻🇺Vanuatu">
+                  🇻🇺Vanuatu
+               </option>
+               <option value="🇼🇫Wallis and Futuna">
+                  🇼🇫Wallis and Futuna
+               </option>
+            </optgroup>
+            <optgroup label="North America">
+               <option value="🇦🇮Anguilla">
+                  🇦🇮Anguilla
+               </option>
+               <option value="🇦🇬Antigua and Barbuda">
+                  🇦🇬Antigua and Barbuda
+               </option>
+               <option value="🇦🇼Aruba">
+                  🇦🇼Aruba
+               </option>
+               <option value="🇧🇸Bahamas">
+                  🇧🇸Bahamas
+               </option>
+               <option value="🇧🇧Barbados">
+                  🇧🇧Barbados
+               </option>
+               <option value="🇧🇿Belize">
+                  🇧🇿Belize
+               </option>
+               <option value="🇧🇲Bermuda">
+                  🇧🇲Bermuda
+               </option>
+               <option value="🇨🇦Canada">
+                  🇨🇦Canada
+               </option>
+               <option value="🇧🇶Caribbean Netherlands">
+                  🇧🇶Caribbean Netherlands
+               </option>
+               <option value="🇰🇾Cayman Islands">
+                  🇰🇾Cayman Islands
+               </option>
+               <option value="🇨🇷Costa Rica">
+                  🇨🇷Costa Rica
+               </option>
+               <option value="🇨🇺Cuba">
+                  🇨🇺Cuba
+               </option>
+               <option value="🇨🇼Curaçao">
+                  🇨🇼Curaçao
+               </option>
+               <option value="🇩🇲Dominica">
+                  🇩🇲Dominica
+               </option>
+               <option value="🇩🇴Dominican Republic">
+                  🇩🇴Dominican Republic
+               </option>
+               <option value="🇸🇻El Salvador">
+                  🇸🇻El Salvador
+               </option>
+               <option value="🇬🇱Greenland">
+                  🇬🇱Greenland
+               </option>
+               <option value="🇬🇩Grenada">
+                  🇬🇩Grenada
+               </option>
+               <option value="🇬🇵Guadeloupe">
+                  🇬🇵Guadeloupe
+               </option>
+               <option value="🇬🇹Guatemala">
+                  🇬🇹Guatemala
+               </option>
+               <option value="🇭🇹Haiti">
+                  🇭🇹Haiti
+               </option>
+               <option value="🇭🇳Honduras">
+                  🇭🇳Honduras
+               </option>
+               <option value="🇯🇲Jamaica">
+                  🇯🇲Jamaica
+               </option>
+               <option value="🇲🇶Martinique">
+                  🇲🇶Martinique
+               </option>
+               <option value="🇲🇽Mexico">
+                  🇲🇽Mexico
+               </option>
+               <option value="🇲🇸Montserrat">
+                  🇲🇸Montserrat
+               </option>
+               <option value="🇳🇮Nicaragua">
+                  🇳🇮Nicaragua
+               </option>
+               <option value="🇵🇦Panama">
+                  🇵🇦Panama
+               </option>
+               <option value="🇵🇷Puerto Rico">
+                  🇵🇷Puerto Rico
+               </option>
+               <option value="🇧🇱Saint Barthelemy">
+                  🇧🇱Saint Barthelemy
+               </option>
+               <option value="🇰🇳Saint Kitts and Nevis">
+                  🇰🇳Saint Kitts and Nevis
+               </option>
+               <option value="🇱🇨Saint Lucia">
+                  🇱🇨Saint Lucia
+               </option>
+               <option value="🇲🇫Saint Martin">
+                  🇲🇫Saint Martin
+               </option>
+               <option value="🇵🇲Saint Pierre and Miquelon">
+                  🇵🇲Saint Pierre and Miquelon
+               </option>
+               <option value="🇻🇨Saint Vincent and the Grenadines">
+                  🇻🇨Saint Vincent and the Grenadines
+               </option>
+               <option value="🇸🇽Sint Maarten">
+                  🇸🇽Sint Maarten
+               </option>
+               <option value="🇹🇹Trinidad and Tobago">
+                  🇹🇹Trinidad and Tobago
+               </option>
+               <option value="🇹🇨Turks and Caicos Islands">
+                  🇹🇨Turks and Caicos Islands
+               </option>
+               <option value="🇺🇲U.S. Outlying Islands">
+                  🇺🇲U.S. Outlying Islands
+               </option>
+               <option value="🇺🇸United States">
+                  🇺🇸United States
+               </option>
+               <option value="🇻🇬British Virgin Islands">
+                  🇻🇬Virgin Islands, British
+               </option>
+               <option value="🇻🇮U.S Virgin Islands">
+                  🇻🇮Virgin Islands, U.S
+               </option>
+            </optgroup>
+            <optgroup label="Antarctica">
+               <option value="🇦🇶Antarctica">
+                  🇦🇶Antarctica
+               </option>
+               <option value="🇧🇻Bouvet Island">
+                  🇧🇻Bouvet Island
+               </option>
+               <option value="🇹🇫French Southern Territories">
+                  🇹🇫French Southern Territories
+               </option>
+               <option value="🇭🇲Heard Island and Mcdonald Islands">
+                  🇭🇲Heard Island and Mcdonald Islands
+               </option>
+               <option value="🇬🇸South Georgia and the South Sandwich">
+                  🇬🇸South Georgia and the South Sandwich Islands
+               </option>
+            </optgroup>
+            <optgroup label="South America">
+               <option value="🇦🇷Argentina">
+                  🇦🇷Argentina
+               </option>
+               <option value="🇧🇴Plurinational State of Bolivia">
+                  🇧🇴Bolivia (Plurinational State of)
+               </option>
+               <option value="🇧🇷Brazil">
+                  🇧🇷Brazil
+               </option>
+               <option value="🇨🇱Chile">
+                  🇨🇱Chile
+               </option>
+               <option value="🇨🇴Colombia">
+                  🇨🇴Colombia
+               </option>
+               <option value="🇪🇨Ecuador">
+                  🇪🇨Ecuador
+               </option>
+               <option value="🇫🇰Falkland Islands (Malvinas)">
+                  🇫🇰Falkland Islands (Malvinas)
+               </option>
+               <option value="🇬🇫French Guiana">
+                  🇬🇫French Guiana
+               </option>
+               <option value="🇬🇾Guyana">
+                  🇬🇾Guyana
+               </option>
+               <option value="Paraguay">
+                  🇵🇾Paraguay
+               </option>
+               <option value="🇵🇪Peru">
+                  🇵🇪Peru
+               </option>
+               <option value="🇸🇷Suriname">
+                  🇸🇷Suriname
+               </option>
+               <option value="🇺🇾Uruguay">
+                  🇺🇾Uruguay
+               </option>
+               <option value="🇻🇪Venezuela">
+                  🇻🇪Venezuela
+               </option>
+            </optgroup>
+         </select>
+         <button onclick="addIRLCountry()">
+            Add Selected
+         </button>
+         <input type="text" id="customCountryInput" placeholder="Custom Country Name">
+         <button onclick="addCustomCountry()">
+            Add Custom Country
+         </button>
+         <button onclick="document.getElementById('addCountries').close()">
+            Close
+         </button>
+      </dialog>
+
+      <dialog id="save">
+         <h1>
+            Save
+         </h1>
+         <p>
+            Copy the text below to save.
+         </p>
+         <textarea id="saveText" rows="10" cols="50">
+         </textarea>
+         <button onclick="document.getElementById('save').close()">
+            Close
+         </button>
+      </dialog>
+
+      <dialog id="import">
+         <h1>
+            Import
+         </h1>
+         <p>
+            Paste the text below to import (broken).
+         </p>
+         <textarea id="importText" rows="10" cols="50">
+         </textarea>
+         <button onclick="importMotions()">
+            Import
+         </button>
+      </dialog>
+
+      <dialog id="timer">
+         <div class="base-timer">
+            <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+               <g class="base-timer__circle">
+                  <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+                  <path id="base-timer-path-remaining" stroke-dasharray="283" class="base-timer__path-remaining green"
+                  d="
+                  M 50, 50
+                  m -45, 0
+                  a 45,45 0 1,0 90,0
+                  a 45,45 0 1,0 -90,0">
+                  </path>
+               </g>
+            </svg>
+            <h1 id="timerDisplay">
+               00:00
+            </h1>
+         </div>
+         <div id="timerButtons">
+            <button onclick="resetTimer()">
+               🔄
+            </button>
+            <button onclick="startpauseTimer()">
+               ⏯
+            </button>
+            <button onclick="endTimer()">
+               ⏹
+            </button>
+            <button onclick="addTime()">
+               ➕
+            </button>
+         </div>
+         <button onclick="document.getElementById('timer').close(); pauseTimer();">
+            Close
+         </button>
+      </dialog>
+
+      <dialog id="setCustomTimer">
+         <h1>
+            Set Custom Timer
+         </h1>
+         <input type="number" id="customMinutes" placeholder="Minutes">
+         <input type="number" id="customSeconds" placeholder="Seconds">
+         <button onclick="setCustomTimer()">
+            Set
+         </button>
+         <button onclick="document.getElementById('setCustomTimer').close()">
+            Cancel
+         </button>
+      </dialog>
+      
+      <dialog id="about">
+      	<button 
+        	onclick="document.getElementById('about').close();"
+        >Close</button>
+      	<h1>What is Model UN Chair Tools?</h1>
+        <p class="blocktext"> MUN Chair Tools is made by Victor Kisselev for Lake Braddock Secondary School Middle School Model United Nation club. It is designed to replace clunky solutions like Google Docs which leave chairs taking half an hour to sort out technical issues and pausing committee to find the highlight button.</p>
+        <h2>Tips & Tricks</h2>
+        <ul>
+        	<li class="blocktext">Hitting the ESC (escape) key closes any dialog.</li>
+            <li class="blocktext">The default topic, when no topic is entered, is "Solutions"</li>
+            <li class="blocktext">Don't forget to add countries!</li>
+        </ul>
+        <h2>Contact</h2>
+        <a href="mailto:1764148+munchairtools@fcpsschools.net">Email (internal fcpsschools email)</a>
+        <a href="mailto:victor.a.kisselev+munchairtools@gmail.com">Email (personal email)</a>
+        <a href="mailto:korynthian.m+munchairtools@gmail.com">Email (business email)</a>
+        <p class="blocktext"> Call or text <a style="font-size:1em; display: inline-block; margin: 0; padding: 0;" href="tel:+17036565658">+1 (703) 656 5658</a> (I may be slow to respond) </p>
+        <a href="https://forms.gle/z4pu8DkJ8KKWBN9S9">Feedback, bug report, and feature suggestion form</a>
+      </dialog>
+      
+      <dialog id="popup"></dialog>
+
+      <script>
+
+         let log = "Started!";
+         const motionsbox = document.getElementById("motionsbox");
+         const motions = ["Welcome!"];
+         const countries = [];
+         console.log("JS loaded!");
+         const FULL_DASH_ARRAY = 283;
+         let isOn = false;
+         let isOver = false;
+         let timeSet = 0; //original set length
+         let timeSetPause = 0; // where to start again after pausing
+         let currentTimeLeft = 0;
+         let scheduled = []; // array of timeout ids
+         let addAmount = 10;
+         
+         document.getElementById('about').showModal();
+
+		function showPopup(content, time) {
+        	const popup = document.getElementById("popup");
+            popup.innerHTML = content;
+            popup.showModal();
+            setTimeout(() => {
+              popup.close();
+            }, time);
+        }
+
+         function addMotion(motionText, motionCountry, time) {
+            motionText = motionText.replace(/'/g, "\\'")
+            motionCountry = motionCountry.replace(/'/g, "\\'");
+            motionCountry = motionCountry || "Unspecified Nation";
+            motionText = motionText || "Unspecified Motion";
+            motions.push(motionCountry + ": " + motionText);
+            const newMotionHtml = document.createElement("div");
+            const topic = document.getElementById("motionTopic").value || "Solutions";
+            newMotionHtml.className = "motion-container";
+            newMotionHtml.id = `motionContainer${motions.length}`;
+            newMotionHtml.innerHTML =
+               `<p id="motion${motions.length}" class="motion">${motionCountry}: ${motionText} on ${topic}</p>
+               <div id="motionButtons${motions.length}", class="motionButtons">
+                  <button
+                     id="failMotion${motions.length}"
+                     class="MotionPass"
+                     onclick="
+                        document.getElementById('motionContainer${motions.length}').style.setProperty('background-color', '#ff0000a6');
+                        document.getElementById('failMotion${motions.length}').remove();
+                        document.getElementById('passMotion${motions.length}').classList.add('smallPassFail');
+                        motions[${motions.length}-1] = 'FAILED: ' + '${motionCountry}: ${motionText}';
+                        log += 'Motion ' + '${motionText}' + 'by' + '${motionCountry}' + ' Failed!'"
+                  >❌</button>
+                  <button id="passMotion${motions.length}"
+                     class="MotionPass"
+                     onclick="
+                        document.getElementById('motionContainer${motions.length}').style.setProperty('background-color', '#00ff00a6');
+                        document.getElementById('motion${motions.length}').style.setProperty('color', '#1A1A1D');
+                        document.getElementById('passMotion${motions.length}').remove();
+                        document.getElementById('failMotion${motions.length}').classList.add('smallPassFail');
+                        motions[${motions.length}-1] = 'PASSED: ' + '${motionCountry}: ${motionText}';
+                        log += 'Motion ' + '${motionText}' + 'by' + '${motionCountry}' + ' Passed!';
+                        if (${time} > 0) {
+                           setTimer(${time});
+                        }"
+                  >✅</button>
+               </div>
+               <button class="motionDelete" onclick="document.getElementById('motionContainer${motions.length}').remove(); motions.splice(${motions.length}-1, 1)">X</button>
+               <button class="motionEdit" onclick="editMotion('${motions.length}')">✏</button>`;
+            motionsbox.appendChild(newMotionHtml);
+            log += `Added motion ${motions.length}: ${JSON.stringify(motionCountry)} - ${JSON.stringify(motionText)}`;
+            document.querySelectorAll('dialog').forEach(dialog => dialog.close());
+            console.log(`Added motion by ${motionCountry}: "${motionText}"`);
+         }
+
+         function submitMod() {
+            const totalTime = document.getElementById("modTotalTime").value;
+            const individualTime = document.getElementById("modIndividualTime").value;
+            addMotion(`${totalTime} - ${individualTime} Moderated Caucus`, document.getElementById('motionSelectCountry').value, individualTime);
+            console.log("Added mod");
+         }
+         
+         function editMotion(motionId) {
+         	  const originalContent = document.getElementById(`motion${motionId}`).textContent;
+              showPopup(`
+                  <h1>Edit Motion ${motionId}</h1>
+                  <textarea id="editMotionBox" rows="10" cols="50">${originalContent}</textarea>
+                  <button onclick="
+                      const motionEdit = document.getElementById('motion${motionId}');
+                      const newMotionContent = document.getElementById('editMotionBox').value;
+                      motionEdit.textContent = newMotionContent;
+                      document.getElementById('popup').close();
+                  ">Submit</button>
+              `, 600000);
+          }
+
+         function addIRLCountry() {
+            let newCountryName = document.getElementById("countrySelectIRLAdd").value;
+            countries.push(newCountryName);
+            const newCountryOption = document.createElement("option");
+            newCountryOption.textContent = newCountryName;
+            newCountryOption.value = newCountryName;
+     document.getElementById("motionSelectCountry").appendChild(newCountryOption);
+            console.log(`Added country ${newCountryName}`);
+            showPopup(`<p>Added country ${newCountryName}</p>`, 200);
+         }
+
+         function addCustomCountry() {
+            let newCountryName = document.getElementById("customCountryInput").value;
+            countries.push(newCountryName);
+            const newCountryOption = document.createElement("option");
+            newCountryOption.textContent = newCountryName;
+            newCountryOption.value = newCountryName;
+            document.getElementById("motionSelectCountry").appendChild(newCountryOption);
+            console.log(`Added country ${newCountryName}`);
+            showPopup(`<p>Added country ${newCountryName}</p>`, 200);
+         }
+
+         function setCustomTimer() {
+            let minutes = Number(document.getElementById("customMinutes").value);
+            let seconds = Number(document.getElementById("customSeconds").value);
+            let timeSet = minutes * 60 + seconds
+            document.getElementById('setCustomTimer').close();
+            setTimer(timeSet);
+            console.log(`Set custom timer for ${timeSet} seconds`);
+         }
+
+         function save() {
+            document.getElementById("saveText").value = JSON.stringify({
+               motions: motions,
+               countries: countries
+            });
+            console.log("Saved!");
+         }
+
+
+         function setTimer(timeInputSet) {
+            timeSet = timeInputSet;
+            currentTimeLeft = timeSet;
+            timeSetPause = timeSet;
+            document.getElementById("timer").showModal();
+            drawTimer(timeSet);
+            console.log(`Set timer for ${timeSet} seconds`);
+            isOver = false;
+         }
+
+         function drawTimer(timeSetDraw) {
+            const timerDisplay = document.getElementById("timerDisplay");
+            let hours = Math.floor(timeSetDraw / 3600);
+            let minutes = Math.floor((timeSetDraw % 3600) / 60);
+            let seconds = timeSetDraw % 60;
+            let mm = minutes.toString().padStart(2, "0");
+            let ss = seconds.toString().padStart(2, "0");
+            if (hours > 0) {
+               timerDisplay.innerHTML = `${hours}:${mm}:${ss}`;
+               console.log(`Drew ${hours}:${mm}:${ss}`);
+            } else if (minutes > 0) {
+               timerDisplay.innerHTML = `${mm}:${ss}`;
+               console.log(`Drew ${mm}:${ss}`);
+            } else {
+               timerDisplay.innerHTML = `${ss}`;
+               console.log(`Drew ${ss}`);
+            }
+            if (timeSetDraw <= 10 && timeSetDraw > 5) {
+               document.getElementById("base-timer-path-remaining").style.stroke = "orange";
+               console.log("Ten seconds left!!! >:(");
+            } else if (timeSetDraw <= 5) {
+               document.getElementById("base-timer-path-remaining").style.stroke = "red";
+               console.log("Five seconds left!!! >:(");
+            } else {
+               document.getElementById("base-timer-path-remaining").style.stroke = "green";
+            }
+            setCircleDasharray();
+         }
+
+         function startTimer() {
+            if (isOn) return;
+            isOn = true;
+            isOver = false;
+            scheduled.forEach((id) => clearTimeout(id));
+            scheduled = [];
+            for (let i = timeSetPause; i >= 0; i--) {
+               const delay = (timeSetPause - i) * 1000;
+               const id = setTimeout(() => {
+                  if (!isOn) return;
+                  drawTimer(i);
+                  currentTimeLeft = i;
+                  if (i === 0) {
+                     isOn = false;
+                     scheduled = [];
+                     endTimer();
+                  }
+               }, delay);
+               scheduled.push(id);
+            }
+         }
+
+         function resetTimer() {
+            isOn = false;
+            isOver = false;
+            scheduled.forEach((id) => clearTimeout(id));
+            scheduled = [];
+            timeSetPause = timeSet;
+            currentTimeLeft = timeSet;
+            drawTimer(timeSet);
+         }
+
+         function pauseTimer() {
+            if (!isOn) return;
+            isOn = false;
+            isOver = false;
+            scheduled.forEach((id) => clearTimeout(id));
+            scheduled = [];
+            timeSetPause = currentTimeLeft;
+         }
+
+         function startpauseTimer() {
+            if (!isOn) {
+               startTimer();
+            } else if (isOn) {
+               pauseTimer();
+            } else {
+               resetTimer();
+            }
+         }
+
+         function addTime() {
+            if (isOn) {
+               pauseTimer();
+               timeSetPause = timeSetPause + addAmount;
+               currentTimeLeft = timeSetPause;
+               startTimer();
+            } else if (isOver) {
+            	setTimer(addAmount);
+                startTimer();
+            } else {
+               timeSetPause = timeSetPause + addAmount;
+               currentTimeLeft = timeSetPause;
+               drawTimer(timeSetPause);
+            }
+         }
+
+         function endTimer() {
+            resetTimer();
+            document.getElementById("timerDisplay").innerHTML = "Time's Up!";
+            document.getElementById("base-timer-path-remaining").style.stroke = "red";
+            isOver = true;
+         }
+
+         function setCircleDasharray() {
+          const circleDasharray = `${(currentTimeLeft / timeSet * FULL_DASH_ARRAY).toFixed(0)} 283`;
+            document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
+         }
+
+      </script>
+   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"40997a1ebd124ff79d67979037becbc2","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
+</html>
