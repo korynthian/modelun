@@ -1,7 +1,34 @@
-<a class="blockLink" href="./index.html">Home</a>
-<a class="blockLink" href="./secretariat.html">Secretariat</a>
-<a class="blockLink" href="./calendar.html">Calendar</a>
-<a class="blockLink" href="./hs/index.html">HS</a>
-<a class="blockLink" href="./ms/index.html">MS</a>
-<a class="blockLink" href="./resources/index.html">Resources</a>
-<a class="blockLink" href="./contact.html">Contact</a>
+<a href="/lb/index.html">Home</a>
+<a href="/lb/secretariat.html">Secretariat</a>
+<a href="/lb/calendar.html">Calendar</a>
+<div class="dropdown">
+    <a class="dropbtn" href="/lb/hs/index.html">HS ▼</a>
+    <div id="drop1" class="dropdown-content">
+        <a href="/lb/hs/mock.html">Mock</a>
+    </div>
+</div>
+<div class="dropdown">
+    <a class="dropbtn" href="/lb/ms/index.html">MS ▼</a>
+    <div id="drop2" class="dropdown-content">
+        <a href="/lb/ms/photos.html">Photos</a>
+        <a href="/lb/ms/mock.html">Mock</a>
+        <a href="/lb/ms/charter.html">Charter</a>
+    </div>
+</div>
+<div class="dropdown">
+    <a class="dropbtn " href="/lb/resources/index.html">Resources ▼</a>
+    <div id="drop3" class="dropdown-content">
+        <div class="dropdown">
+            <a class="dropbtn">Conferences ▼</a>
+            <div id="drop4" class="dropdown-content">
+                <a href="https://www.tjmun.org">Thomas Jefferson</a>
+                <a href="https://www.langleymodelun.com">Langley</a>
+                <a href="https://www.chantillymun.org">Langley</a>
+            </div>
+        </div>
+        <a href="/lb/resources/chairtools.html">Chair Tools</a>
+        <a href="/lb/resources/nmunrules.html">Rules, per NMUN</a>
+    </div>
+</div>
+<a href="/lb/resources/index.html">Resources</a>
+<a href="/lb/contact.html">Contact</a>

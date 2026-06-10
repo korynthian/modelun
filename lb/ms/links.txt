@@ -1,7 +1,0 @@
-<a class="blockLink" href="./index.html">Home</a>
-<a class="blockLink" href="./secretariat.html">Secretariat</a>
-<a class="blockLink" href="./calendar.html">Calendar</a>
-<a class="blockLink" href="./hs/index.html">HS</a>
-<a class="blockLink" href="./ms/index.html">MS</a>
-<a class="blockLink" href="./resources/index.html">Resources</a>
-<a class="blockLink" href="./contact.html">Contact</a>
