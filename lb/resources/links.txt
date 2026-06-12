@@ -1,5 +1,5 @@
 <a href="/lb/resources/index.html">Home</a>
-<a href="chairtools.lbssmun.com">Chair Tools</a>
+<a href="https://chairtools.lbssmun.com">Chair Tools</a>
 <a href="/lb/resources/nmunrules.html">Rules, per NMUN</a>
 <a class="dropbtn">Conferences ▼</a>
 <div id="drop4" class="dropdown-content">
