@@ -1,3 +1,0 @@
-<a href="/lb/hs/index.html">Home</a>
-<a href="/lb/hs/mock.html">Mock</a>
-<a href="../index.html">Back</a>

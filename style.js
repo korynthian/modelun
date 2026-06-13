@@ -54,37 +54,25 @@ fetch("/template.txt")
         }
       });
 
-      fetch("./links.txt")
-        .then((res) => res.text())
-        .then((text) => {
-          if (text.includes("Cannot GET /")) {
-            fetch("/links.txt")
-              .then((res) => res.text())
-              .then((text) => {
-                if (text.includes("Cannot GET /")) {
-                  fetch("/../../links.txt")
-                    .then((res) => res.text())
-                    .then((text) => {
-                      if (text.includes("Cannot GET /")) {
-                        document.getElementById("links").innerHTML = "<p>ERROR</p>";
-                      } else {
-                        document.getElementById("links").innerHTML = text;
-                        initDropdowns();
-                      }
-                    })
-                    .catch((e) => console.error(e));
-                } else {
-                  document.getElementById("links").innerHTML = text;
-                  initDropdowns();
-                }
-              })
-              .catch((e) => console.error(e));
-          } else {
+      let linksUrl;
+      if (window.location.href.includes("lb")) {
+        linksUrl = "/lb/links.txt";
+      } else if (window.location.href.includes("conference")) {
+        linksUrl = "/conference/links.txt";
+      } else {
+        console.log("ERROR");
+        linksUrl = null;
+      }
+      
+      if (linksUrl) {
+        fetch(linksUrl)
+          .then((res) => res.text())
+          .then((text) => {
             document.getElementById("links").innerHTML = text;
             initDropdowns();
-          }
-        })
-        .catch((e) => console.error(e));
+          })
+          .catch((e) => console.error(e));
+      }
     }
   })
   .catch((e) => console.error(e));

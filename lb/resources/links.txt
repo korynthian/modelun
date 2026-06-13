@@ -1,4 +1,0 @@
-<a href="/lb/resources/index.html">Home</a>
-<a href="https://chairtools.lbssmun.com">Chair Tools</a>
-<a href="/lb/resources/nmunrules.html">Rules, per NMUN</a>
-<a href="../index.html">Back</a>
