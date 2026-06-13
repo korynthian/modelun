@@ -39,12 +39,14 @@ fetch("/template.txt")
       window.addEventListener('scroll', () => {
         if (!ticking) {
           window.requestAnimationFrame(() => {
-            topBar.classList.toggle('scrolled', window.scrollY > 100);
-            document.getElementById('drop1').classList.toggle('scrolled', window.scrollY > 100);
-            document.getElementById('drop2').classList.toggle('scrolled', window.scrollY > 100);
-            document.getElementById('drop3').classList.toggle('scrolled', window.scrollY > 100);
-            document.getElementById('drop4').classList.toggle('scrolled', window.scrollY > 100);
-
+            if (topBar) topBar.classList.toggle('scrolled', window.scrollY > 100);
+            if (window.location.href.includes("lb")) {
+              const drops = ['drop1','drop2','drop3','drop4'];
+              drops.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('scrolled', window.scrollY > 100);
+              });
+            }
 
             ticking = false;
           });
@@ -98,6 +100,6 @@ newHead.innerHTML = `
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <script src="/script.js"></script>
-    <link rel="icon" href="/img/logo.svg">
+    <link rel="icon" href="/img/logo.ico">
 `;
 document.head.replaceWith(newHead);

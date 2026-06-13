@@ -16,7 +16,7 @@
         >
         <div id="headerOverlay">
             <img
-                src="/img/LogoWhite.svg"
+                src="/img/LogoShadow.svg"
                 alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
                 id="headerLogo"
                 >
@@ -31,6 +31,6 @@
             alt="A photograph from the Washington Post of the entrance to Lake Braddock Secondary School, showing the stone sign with the school's name and the entrance road with a wide median full of trees, and some busses parked on the left on the exiting side of the road."
             id="footerBackground"
         >
-        <p id="footerText">©2026, Lake Braddock Secondary School Middle School Model United Nations and Lake Braddock Secondary School High School Model United Nations. All Rights Reserved. Chair Tools is the property of Victor Kisselev. Please be aware that this website is the site of LBSSMUN, a recognized student organization at LBSS. However, this site is not maintained or controlled by Fairfax County Public Schools or LBSS. FCPS and LBSS do not endorse the content, views, or opinions expressed herein. LBSSMUN is solely responsible for the content of this website. Please contact us if you have any questions. "MUN is FUN!"</p>
+        <p id="footerText">©2026, Lake Braddock Secondary School Model United Nations. All Rights Reserved. Please be aware that this website is the site of LBSSMUN, a recognized student organization at LBSS. However, this site is not maintained or controlled by Fairfax County Public Schools or LBSS. FCPS and LBSS do not endorse the content, views, or opinions expressed herein. LBSSMUN is solely responsible for the content of this website. Please <a href="/lb/contact.html">contact us</a> if you have any questions.</p>
 
     </footer>

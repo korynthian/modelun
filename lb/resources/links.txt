@@ -1,10 +1,4 @@
 <a href="/lb/resources/index.html">Home</a>
 <a href="https://chairtools.lbssmun.com">Chair Tools</a>
 <a href="/lb/resources/nmunrules.html">Rules, per NMUN</a>
-<a class="dropbtn">Conferences ▼</a>
-<div id="drop4" class="dropdown-content">
-    <a href="https://www.tjmun.org">Thomas Jefferson</a>
-    <a href="https://www.langleymodelun.com">Langley</a>
-    <a href="https://www.chantillymun.org">Langley</a>
-</div>
 <a href="../index.html">Back</a>

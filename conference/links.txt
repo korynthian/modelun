@@ -2,6 +2,6 @@
 <a href="/conference/committees.html">Committees</a>
 <a href="/conference/conference-info.html">Conference Information</a>
 <a href="/conference/schedule.html">Schedule</a>
-<a href="/conference/policies.html">Conference Policies</a>
+<a href="/conference/policies.html">Policies</a>
 <a href="/conference/delegates.html">Delegates</a>
 <a href="/conference/location.html">Location</a>
