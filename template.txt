@@ -1,6 +1,6 @@
     <div id="topBar" class="topBar">
         <a href="./index.html"><img
-            src="/img/Logo.svg"
+            src="/img/LogoWhite.svg"
             alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
             id="topBarLogo"
         >
@@ -16,7 +16,7 @@
         >
         <div id="headerOverlay">
             <img
-                src="/img/Logo.svg"
+                src="/img/LogoWhite.svg"
                 alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
                 id="headerLogo"
                 >

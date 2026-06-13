@@ -98,5 +98,6 @@ newHead.innerHTML = `
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <script src="/script.js"></script>
+    <link rel="icon" href="/img/logo.svg">
 `;
 document.head.replaceWith(newHead);

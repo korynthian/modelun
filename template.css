@@ -64,15 +64,15 @@ body {
     height: 80%;
     margin: 0.1%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1%;
+    left: 1%;
     text-align: left;
 }
 
 #siteName {
     text-align: left;
     position: absolute;
-    left: 11%;
+    left: 9%;
     margin: 0;
     padding: 0;
     color: white;
@@ -103,10 +103,10 @@ body {
     position: relative;
     margin: 20px;
     padding: 40px;
-    background-color: rgba(255, 255, 255, 0.025);
     border-radius: 20px;
     max-width: 900px; 
     font-size: 1.45rem;
+    text-align: center;
 }
 
 #titleWelcome {
@@ -138,11 +138,12 @@ body {
 }
 
 #headerLogo {
-    width: 750px;
+    width: 350px;
     margin-bottom: 15px;
     margin-left: 5%;
     margin-right: 5%;
     z-index: 0;
+    margin-bottom: -30px;
 }
 
 footer {
