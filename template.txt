@@ -1,5 +1,5 @@
     <div id="topBar" class="topBar">
-        <a href="./index.html"><img
+        <a href="/index.html"><img
             src="/img/LogoWhite.svg"
             alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
             id="topBarLogo"

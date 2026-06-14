@@ -1,7 +1,7 @@
 
 let title = document.title;
 if (title === "Welcome") { 
-  title = "Lake Braddock Secondary School Model United Nations"
+  title = "Lake Braddock Secondary School <br>Model United Nations"
 }
 
 function initDropdowns() {
@@ -32,7 +32,7 @@ fetch("/template.txt")
       contentBoxNew.innerHTML = originalContent;
       contentBoxNew.id = "pageContent";
       newContentBox.replaceWith(contentBoxNew);
-      document.getElementById("title").innerText = title;
+      document.getElementById("title").innerHTML = title;
       
       const topBar = document.getElementById('topBar');
       let ticking = false;
