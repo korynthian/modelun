@@ -19,8 +19,8 @@
     <a class="dropbtn " href="/lb/resources/index.html">Resources ▼</a>
     <div id="drop3" class="dropdown-content">
         <div class="dropdown">
-            <a href="chairtools.lbssmun.com">Chair Tools</a>
-            <a href="/lb/resources/nmunrules.html">Rules, per NMUN</a>
+            <a href="https://chairtools.lbssmun.com">Chair Tools</a>
+            <a href="/lb/resources/nmun-rules.pdf">Rules, per NMUN</a>
         </div>
     </div>
 </div>
