@@ -55,10 +55,10 @@ fetch("/template.txt")
       });
 
       let linksUrl;
-      if (window.location.href.includes("lb")) {
-        linksUrl = "/lb/links.txt";
-      } else if (window.location.href.includes("conference")) {
+      if (window.location.href.includes("conference")) {
         linksUrl = "/conference/links.txt";
+      } else if (window.location.href.includes("/lb")) {
+        linksUrl = "/lb/links.txt";
       } else {
         console.log("ERROR");
         linksUrl = null;
