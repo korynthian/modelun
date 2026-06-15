@@ -10,7 +10,7 @@
     </div>
     <div id="header">
         <img
-            src="https://thehighlandernews.com/wp-content/uploads/2019/04/CBQMRWWLXAI6RI7GITNKHU263Y.jpg"
+            src="/img/header.jpg"
             alt="A photograph from The Highlander News of Lake Braddock Secondary School, viewing our signature overhang at the main entrance."
             id="headerBackground"
         >
@@ -27,7 +27,7 @@
     <div id="pageContent"> <p id="pageContentReplace"> This should be replaced with the content of the page </p> </div>
     <footer id="footer">
         <img
-            src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HN4A4YC45AI6PKTJHFSKPVKSA4.jpg&w=1440&impolicy=high_res"
+            src="/img/footer.jpg"
             alt="A photograph from the Washington Post of the entrance to Lake Braddock Secondary School, showing the stone sign with the school's name and the entrance road with a wide median full of trees, and some busses parked on the left on the exiting side of the road."
             id="footerBackground"
         >
