@@ -109,7 +109,8 @@ body {
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.7);
-    filter: blur(1px);
+    /* filter: blur(1px); */
+    /*Removed because Grace said it looks low-res*/
 }
 
 #headerOverlay {
