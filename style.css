@@ -6,7 +6,7 @@
 
 #pageContent {
     flex: 1;
-    padding: 40px 100px;
+    padding: 40px 200px;
     text-align: center;
     font-size: 1.25rem;
     color: var(--lbss-purple);
@@ -139,4 +139,8 @@
 .icon {
     width: 45px;
     height: 45px;
+}
+
+.textLeft h2, .textLeft p, .textLeft ol, .textLeft ul, .textLeft li, .textLeft h3, .textLeft h4 {
+    text-align: left;
 }
