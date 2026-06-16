@@ -19,7 +19,7 @@ body {
 #topBar {
     position: fixed;
     width: 100%;
-    height: 8.5%;
+    height: 65px;
     background-color: rgba(255,255,255, 0.025);
     top: 0;
     left: 0;
@@ -64,16 +64,16 @@ body {
     height: 80%;
     margin: 0.1%;
     position: absolute;
-    top: 5%;
-    left: 1%;
+    top: 5px;
+    left: 5px;
     text-align: left;
 }
 
 #siteName {
     text-align: left;
     position: absolute;
-    left: 5%;
-    top: -15%;
+    left: 60px;
+    top: 5px;
     margin: 0;
     padding: 0;
     color: white;
