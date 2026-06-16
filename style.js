@@ -128,5 +128,7 @@ newHead.innerHTML = `
     <meta name="twitter:description" content="${metaDescription}">
     <meta name="twitter:image" content="https://lbssmun.com/img/logoShadow.svg">
     <meta name="twitter:site" content="FCPSLBSS">
+    <link rel="canonical" href="${window.location.href}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.ico">
 `;
 document.head.replaceWith(newHead);
