@@ -31,7 +31,7 @@
 .blockLinkoutline {
     display: inline-block;
     padding: 10px 20px;
-    margin: 20px;
+    margin: 5px;
     text-decoration: none;
     font-size: 1.5rem;
     border-radius: 8px;
@@ -56,7 +56,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     max-width: 1000px;
     margin: 0 auto 50px auto;
 }
@@ -95,21 +95,10 @@
 
 .profile-links {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
-}
-
-.icon-placeholder {
-    background-color: #666;
-    color: white;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    cursor: pointer;
+    font-size: 0.5em !important;
+    padding: 10px;
 }
 
 .profile-card.large {
