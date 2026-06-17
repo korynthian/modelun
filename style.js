@@ -74,8 +74,22 @@ fetch("/template.txt")
           .catch((e) => console.error(e));
       }
     }
-  })
-  .catch((e) => console.error(e));
+      })
+      .catch((e) => console.error(e));
+      let tickingParallax = false;
+      window.addEventListener('scroll', () => {
+          if (!tickingParallax) {
+              window.requestAnimationFrame(() => {
+                  const parallaxBg = document.querySelector('.parallax-bg');
+                  if (parallaxBg) {
+                      let scrollPosition = window.scrollY;
+                      parallaxBg.style.transform = `translate3d(0, ${scrollPosition * 0.6}px, 0)`;
+                  }
+                  tickingParallax = false;
+              });
+              tickingParallax = true;
+          }
+      });
 
 const path = window.location.pathname.toLowerCase();
 let metaDescription = 'Lake Braddock Secondary School Model UN — news, resources, and conference information.';
@@ -112,9 +126,9 @@ newHead.innerHTML = `
     <title>${title} - Lake Braddock SS Model UN</title>
     <link rel="stylesheet" href="/template.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth@6..144,1..1000,75..125&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="/script.js"></script>
     <link rel="icon" href="/img/Logo.ico">
     <meta property="og:title" content="${title} - Lake Braddock Secondary School Model UN">

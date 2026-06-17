@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth@6..144,1..1000,75..125&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
 :root {
     --lbss-purple: #5a2d88;
     --lbss-gold: #fcc81d;
@@ -5,7 +7,7 @@
 }
 
 body {
-    font-family: "Oswald", sans-serif;
+    font-family: "Oswald", "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -125,8 +127,6 @@ body {
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.7);
-    /* filter: blur(1px); */
-    /*Removed because Grace said it looks low-res*/
 }
 
 #headerOverlay {
@@ -256,4 +256,42 @@ footer {
 
 a {
     color: white;
+}
+
+#collapseHeaderBtn {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.699);
+    font-size: 2rem;
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5rem;
+    width: 5rem;
+    height: 4rem;
+    letter-spacing: 0.2em;
+    padding: 0;
+    font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "ROND" 0;
+    transform: scaleX(2);
+    position: absolute;
+    bottom: 3.5%;
+    text-align: center;
+}
+
+#collapseHeaderBtn:hover {
+    color: white;
+}
+
+.parallax-bg {
+    height: 150% !important; 
+    top: -25% !important;    
+    will-change: transform;  
 }

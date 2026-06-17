@@ -15,6 +15,7 @@
             src="/img/header.jpg"
             alt="A of Lake Braddock Secondary School, viewing our signature overhang at the main entrance."
             id="headerBackground"
+            class="parallax-bg"
         >
         <div id="headerOverlay">
             <img
@@ -24,7 +25,9 @@
                 >
             <h1 id="title">Lake Braddock Secondary School Model United Nations</h1>
         </div>
-
+        <button id="collapseHeaderBtn" onclick="window.scrollTo({ top: document.getElementById('pageContent').offsetTop - 65, behavior: 'smooth' });">
+            <p>V</p>
+        </button>
     </div>
     <div id="pageContent"> <p id="pageContentReplace"> This should be replaced with the content of the page </p> </div>
     <footer id="footer">
