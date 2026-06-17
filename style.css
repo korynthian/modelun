@@ -44,6 +44,7 @@
 .blockLinkoutline:hover {
     background-color: var(--lbss-purple);
     color: white;
+    border-color: inherit;
 }
 
 .secretariat-content {
