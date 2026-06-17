@@ -1,7 +1,7 @@
 
 let title = document.title;
 if (title === "Welcome") { 
-  title = "Lake Braddock Secondary School <br>Model United Nations"
+  title = "Lake Braddock Secondary School Model United Nations"
 }
 
 function initDropdowns() {

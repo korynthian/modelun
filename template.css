@@ -44,14 +44,14 @@ body {
     right: calc(1% + 10px);
     top: 50%;
     transform: translateY(-50%);
-    font-size: clamp(0.05rem, 1.4vw, 1.4rem);
+    font-size: clamp(0.05rem, 1.5vw, 1.4rem);
     gap: 0.6rem;
     position: absolute;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
-    max-width: calc(100% - 400px);
+    max-width: calc(100% - 340px);
     min-width: 0;
     flex-shrink: 1;
 }
@@ -89,7 +89,7 @@ body {
     text-align: left;
     position: absolute;
     left: 60px;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     margin: 0;
     padding: 0;
