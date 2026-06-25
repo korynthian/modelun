@@ -10,6 +10,9 @@
     text-align: center;
     font-size: 1.25rem;
     color: var(--lbss-purple);
+    a {
+        color: var(--lbss-purple);
+    }
 }
 
 .blockLink {
@@ -17,7 +20,7 @@
     padding: 10px 20px;
     margin: 20px;
     background-color: var(--lbss-purple);
-    color: white;
+    color: white !important;
     text-decoration: none;
     font-size: 1.5rem;
     border-radius: 8px;
@@ -38,12 +41,12 @@
     transition: background-color 0.3s ease;
     background-color: transparent;
     border: 2px solid var(--lbss-purple);
-    color: var(--lbss-purple);
+    color: var(--lbss-purple) !important;
 }
 
 .blockLinkoutline:hover {
     background-color: var(--lbss-purple);
-    color: white;
+    color: white !important;
     border-color: inherit;
 }
 
