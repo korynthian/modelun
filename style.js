@@ -1,7 +1,7 @@
 
 let title = document.title;
-if (title === "Welcome") { 
-  title = "Lake Braddock Secondary School Model United Nations"
+if (title === "Welcome") {
+  title = "Lake Braddock Secondary School <br> Model United Nations"
 }
 
 function initDropdowns() {
@@ -26,14 +26,12 @@ fetch("/template.txt")
     const originalContent = contentBox ? contentBox.innerHTML : "<p>Hello! It seems the page you're attempting to visit is empty.</p>";
     document.body.innerHTML = text;
     const newContentBox = document.getElementById("pageContent");
-    
     if (newContentBox) {
       let contentBoxNew = document.createElement("div");
       contentBoxNew.innerHTML = originalContent;
       contentBoxNew.id = "pageContent";
       newContentBox.replaceWith(contentBoxNew);
       document.getElementById("title").innerHTML = title;
-      
       const topBar = document.getElementById('topBar');
       let ticking = false;
       window.addEventListener('scroll', () => {
@@ -63,7 +61,7 @@ fetch("/template.txt")
         console.log("ERROR");
         linksUrl = null;
       }
-      
+
       if (linksUrl) {
         fetch(linksUrl)
           .then((res) => res.text())
@@ -106,6 +104,9 @@ if (path.includes('/lb/') || path.endsWith('/index.html') || path === '/') {
 }
 
 const newHead = document.createElement('head');
+const headTitle = title === "Lake Braddock Secondary School <br> Model United Nations"
+  ? "Lake Braddock Secondary School Model UN"
+  : `${title} - Lake Braddock Model UN`;
 newHead.innerHTML = `
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2K0JR4LDW"></script>
@@ -123,7 +124,7 @@ newHead.innerHTML = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Lake Braddock Secondary School Model UN">
-    <title>${title} - Lake Braddock SS Model UN</title>
+    <title>${headTitle}</title>
     <link rel="stylesheet" href="/template.css">
     <link rel="stylesheet" href="/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,14 +132,14 @@ newHead.innerHTML = `
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth@6..144,1..1000,75..125&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="/script.js"></script>
     <link rel="icon" href="/img/Logo.ico">
-    <meta property="og:title" content="${title} - Lake Braddock Secondary School Model UN">
+    <meta property="og:title" content="${headTitle}">
     <meta property="og:description" content="${metaDescription}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${window.location.href}">
     <meta property="og:image" content="https://lbssmun.com/img/logoShadow.svg">
     <meta property="og:site_name" content="Lake Braddock Secondary School Model UN">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="${title} - Lake Braddock Secondary School Model UN">
+    <meta name="twitter:title" content="${headTitle}">
     <meta name="twitter:description" content="${metaDescription}">
     <meta name="twitter:image" content="https://lbssmun.com/img/logoShadow.svg">
     <meta name="twitter:site" content="FCPSLBSS">

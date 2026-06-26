@@ -23,7 +23,7 @@
                 alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
                 id="headerLogo"
                 >
-            <h1 id="title">Lake Braddock Secondary School Model United Nations</h1>
+            <h1 id="title">Lake Braddock Secondary School <br> Model United Nations</h1>
         </div>
         <button id="collapseHeaderBtn" onclick="window.scrollTo({ top: document.getElementById('pageContent').offsetTop - 65, behavior: 'smooth' });">
             <p>V</p>
