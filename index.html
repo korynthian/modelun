@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth@6..144,1..1000,75..125&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/img/Logo.ico">
+    <link rel="icon" href="/img/logo/Logo.ico">
     <link rel="canonical" href="https://lbssmun.com">
     <meta name="robots" content="index, follow">
     <meta name="description" 
@@ -39,12 +39,12 @@ content="The very first Lake Braddock Model United Nations conference! If you're
     <meta name="twitter:description" content="The very first Lake Braddock Model United Nations conference! If you're a student at Lake Braddock, join the Model UN club to learn leadership, diplomacy, and public speaking skills.">
     <meta name="twitter:image" content="https://lbssmun.com/img/logoShadow.svg">
     <meta name="twitter:site" content="FCPSLBSS">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo/logo.ico">
 </head>
 <body>
     <div id="topBar" class="topBar">
         <a href="./index.html"><img
-            src="/img/LogoWhite.svg"
+            src="/img/logo/LogoWhite.svg"
             alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
             id="topBarLogo"
         >
@@ -52,8 +52,17 @@ content="The very first Lake Braddock Model United Nations conference! If you're
     </div>
     <div id="headerWelcome">
         <img
-            src="/img/header.jpg"
-            alt="A photograph of Lake Braddock Secondary School, viewing our signature overhang at the main entrance."
+            srcset="
+                /img/header/250.webp 250w,
+                /img/header/400.webp 400w,
+                /img/header/800.webp 800w,
+                /img/header/1200.webp 1200w,
+                /img/header/1600.webp 1600w,
+                /img/header/3200.webp 3200w,
+                /img/header/fullsize.jpg 6000w"
+            sizes="100vw"
+            src="/img/header/1600.webp"
+            alt="A of Lake Braddock Secondary School, viewing our signature overhang at the main entrance."
             id="headerBackground"
         >
         <div id="headerOverlay">

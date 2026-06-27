@@ -21,8 +21,11 @@
     <div id="drop3" class="dropdown-content">
         <div class="dropdown">
             <a href="https://chairtools.lbssmun.com">Chair Tools</a>
+            <a href="/lb/resources/examples">Examples</a>
+            <a href="/lb/resources/conferences.html">Conference</a>
             <a href="/lb/resources/nmun-rules.pdf">Rules, per NMUN</a>
         </div>
     </div>
 </div>
+<a href="/lb/awards.html">Awards</a>
 <a href="/lb/contact.html">Contact</a>

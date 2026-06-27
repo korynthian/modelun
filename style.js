@@ -53,9 +53,9 @@ fetch("/template.txt")
       });
 
       let linksUrl;
-      if (window.location.href.includes("conference")) {
+      if (window.location.href.includes("/conference/")) {
         linksUrl = "/conference/links.txt";
-      } else if (window.location.href.includes("/lb")) {
+      } else if (window.location.href.includes("/lb/")) {
         linksUrl = "/lb/links.txt";
       } else {
         console.log("ERROR");
@@ -131,7 +131,7 @@ newHead.innerHTML = `
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth@6..144,1..1000,75..125&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="/script.js"></script>
-    <link rel="icon" href="/img/Logo.ico">
+    <link rel="icon" href="/img/logo/Logo.ico">
     <meta property="og:title" content="${headTitle}">
     <meta property="og:description" content="${metaDescription}">
     <meta property="og:type" content="website">
@@ -144,6 +144,6 @@ newHead.innerHTML = `
     <meta name="twitter:image" content="https://lbssmun.com/img/logoShadow.svg">
     <meta name="twitter:site" content="FCPSLBSS">
     <link rel="canonical" href="${window.location.href}">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo/logo.ico">
 `;
 document.head.replaceWith(newHead);

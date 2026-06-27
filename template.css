@@ -291,7 +291,16 @@ a {
 }
 
 .parallax-bg {
-    height: 150% !important; 
-    top: -25% !important;    
-    will-change: transform;  
+    height: 150% !important;
+    top: -25% !important;
+    will-change: transform;
+}
+
+.invisible {
+    display: none;
+}
+
+.countdown-timer {
+    pointer-events: none;
+    cursor: default;
 }
