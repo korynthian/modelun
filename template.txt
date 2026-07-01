@@ -1,16 +1,21 @@
-    <div id="topBar" class="topBar">
+    <div data-nosnippet id="menu">
+        <button id="hideMenu">✕</button>
+        <div id="menulinks"></div>
+    </div>
+    <div id="menuOverlay"></div>
+    <div data-nosnippet id="topBar" class="topBar">
+        <button id="showMenu">☰</button>
         <a href="/index.html" id="brandLink">
             <img
                 src="/img/logo/LogoWhite.svg"
-                alt="The LBSS Model UN Logo, with Gold text saying 'LBSS MUN,' where the U is replaced with the LBSS Bear and a UN logo on a purple background."
+                alt="The LBSS Model UN Logo."
                 id="topBarLogo"
             >
             <span id="siteName">LBSS Model UN</span>
         </a>
-        <div id="links">
-        </div>
+        <div id="links"></div>
     </div>
-    <div id="header">
+    <div data-nosnippet id="header">
         <img
             srcset="
                 /img/header/250.webp 250w,
@@ -39,7 +44,7 @@
         </button>
     </div>
     <div id="pageContent"> <p id="pageContentReplace"> This should be replaced with the content of the page </p> </div>
-    <footer id="footer">
+    <footer data-nosnippet id="footer">
         <img
             srcset="
                 /img/footer/250.webp 250w,

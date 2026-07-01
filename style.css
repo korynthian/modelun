@@ -1,6 +1,6 @@
 :root {
     --lbss-purple: #5a2d88;
-    --lbss-gold: #fcc81d;
+    --lbss-gold: #fdc30f;
     --un-blue: #009edb;
 }
 
@@ -10,6 +10,9 @@
     text-align: center;
     font-size: 1.25rem;
     color: var(--lbss-purple);
+        @media (max-width: 915px) {
+        padding: 20px 20px;
+    }
 }
 
 #pageContent a {
@@ -115,6 +118,14 @@
     flex: 1 1 100%;
     align-items: center;
     text-align: left;
+    @media (max-width: 915px) {
+        flex: 1 1 250px;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .profile-card.horizontal img {
@@ -122,17 +133,22 @@
     aspect-ratio: 16 / 9;
     margin-bottom: 0;
     margin-right: 30px;
+    @media (max-width: 915px) {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        background-color: #f0f0f0;
+        margin-bottom: 15px;
+    }
 }
 
 .profile-card.horizontal .horizontal-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.icon {
-    width: 45px;
-    height: 45px;
+    @media (max-width: 915px) {
+        align-items: center;
+    }
 }
 
 .textLeft h2, .textLeft p, .textLeft ol, .textLeft ul, .textLeft li, .textLeft h3, .textLeft h4 {

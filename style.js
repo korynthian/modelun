@@ -8,13 +8,28 @@ function initDropdowns() {
   const dropdowns = document.querySelectorAll('.dropdown');
   dropdowns.forEach(dropdown => {
     const content = dropdown.querySelector('.dropdown-content');
-    if (content) {
-      dropdown.addEventListener('mouseenter', () => {
-        content.style.display = 'block';
-      });
-      dropdown.addEventListener('mouseleave', () => {
-        content.style.display = 'none';
-      });
+    const btn = dropdown.querySelector('.dropbtn');
+    
+    if (content && btn) {
+      if (window.innerWidth <= 915) {
+        btn.addEventListener('click', (e) => {
+          if (content.style.display !== 'block') {
+            e.preventDefault();
+            content.style.display = 'block';
+          }
+          else if (content.style.display === 'block') {
+            e.preventDefault();
+            content.style.display = 'none';
+          }
+        });
+      } else {
+        dropdown.addEventListener('mouseenter', () => {
+          content.style.display = 'block';
+        });
+        dropdown.addEventListener('mouseleave', () => {
+          content.style.display = 'none';
+        });
+      }
     }
   });
 }
@@ -67,11 +82,42 @@ fetch("/template.txt")
           .then((res) => res.text())
           .then((text) => {
             document.getElementById("links").innerHTML = text;
+            document.getElementById("menulinks").innerHTML = text;
             initDropdowns();
           })
           .catch((e) => console.error(e));
       }
-    }
+      const overlay = document.getElementById("menuOverlay")
+
+      function hideMenu() {
+        document.getElementById("menu").style.transform = "translateX(-100%)";
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+      }
+
+      function showMenu() {
+        document.getElementById("menu").style.transform = "translateX(0)";
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "auto";
+        
+        document.querySelectorAll(".dropdown-content").forEach(el => {
+          el.style.display = 'none';
+        });
+      };
+
+      document.getElementById("showMenu").addEventListener("click", () => {
+        showMenu();
+      });
+      
+      document.getElementById("hideMenu").addEventListener("click", () => {
+        hideMenu();
+      });
+
+      overlay.addEventListener("click", () => {
+        hideMenu();
+      });
+      
+      }
       })
       .catch((e) => console.error(e));
       let tickingParallax = false;
@@ -93,13 +139,13 @@ const path = window.location.pathname.toLowerCase();
 let metaDescription = 'Lake Braddock Secondary School Model UN — news, resources, and conference information.';
 if (path.includes('/lb/') || path.endsWith('/index.html') || path === '/') {
   metaDescription = 'Lake Braddock Model UN: club resources, schedules, and event information for students at Lake Braddock Secondary School.';
-} else if (path.includes('/lb/resources') || path.includes('/resources')) {
+} if (path.includes('/lb/resources') || path.includes('/resources')) {
   metaDescription = 'Resources for Model UN: guides, presentations, and reference documents to help delegates prepare position papers and speeches.';
-} else if (path.includes('/conference')) {
+} if (path.includes('/conference')) {
   metaDescription = 'Conference information: schedules, committees, location, and registration links for the Model UN conference.';
-} else if (path.includes('/conference/delegates') || path.includes('delegates.html')) {
+} if (path.includes('/conference/delegates') || path.includes('delegates.html')) {
   metaDescription = 'Delegate information: rules, position paper guidance, and conference policies for delegates.';
-} else if (path.includes('/lb/contact') || path.includes('contact.html')) {
+} if (path.includes('/lb/contact') || path.includes('contact.html')) {
   metaDescription = 'Contact the Lake Braddock Model UN secretariat for questions about the club or upcoming conferences.';
 }
 
@@ -123,6 +169,7 @@ newHead.innerHTML = `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <meta name="author" content="Lake Braddock Secondary School Model UN">
     <title>${headTitle}</title>
     <link rel="stylesheet" href="/template.css">
@@ -136,14 +183,31 @@ newHead.innerHTML = `
     <meta property="og:description" content="${metaDescription}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${window.location.href}">
-    <meta property="og:image" content="https://lbssmun.com/img/logoShadow.svg">
+    <meta property="og:image" content="https://lbssmun.com/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="6250">
+    <meta property="og:image:height" content="6250">
     <meta property="og:site_name" content="Lake Braddock Secondary School Model UN">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Lake Braddock MUN">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo/logo.png">
+    <link rel="apple-touch-startup-image" href="/img/logo/LogoName.svg">
+
+
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="${headTitle}">
     <meta name="twitter:description" content="${metaDescription}">
-    <meta name="twitter:image" content="https://lbssmun.com/img/logoShadow.svg">
+    <meta name="twitter:image" content="https://lbssmun.com/img/logo.png">
     <meta name="twitter:site" content="FCPSLBSS">
+    <meta name="application-name" content="LBSS Model UN">
+    <meta name="theme-color" content="#5a2d88">
+    <meta name="referrer" content="origin">
+    <meta name="copyright" content="Lake Braddock Secondary School Model United Nations">
+    <meta name="reply-to" content="contact@lbssmun.com">
+    <meta name="owner" content="Lake Braddock Secondary School Model United Nations">
     <link rel="canonical" href="${window.location.href}">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo/logo.ico">
-`;
+    `;  
 document.head.replaceWith(newHead);
